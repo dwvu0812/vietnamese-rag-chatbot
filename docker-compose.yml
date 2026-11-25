@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    env_file: .env
+    environment:
+      CHROMA_PATH: /app/chroma_db
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/app/chroma_db
+      - ./docs:/app/docs:ro
+
+volumes:
+  chroma_data:
